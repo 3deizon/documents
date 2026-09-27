@@ -12,9 +12,9 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--ivory);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 .hero{position:relative;min-height:88vh;max-height:980px;background:var(--ink);color:#fff;display:flex;flex-direction:column;overflow:hidden}
 .hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
-@media(max-width:700px){.hero picture img{object-position:center top}.hero{min-height:100vh}}
+@media(max-width:1024px){.hero picture img{object-position:center top}.hero{min-height:100vh}}
 .hero .txt{max-width:1180px}
-@media(min-width:701px){.hero .txt p,.hero h1{max-width:620px}}
+@media(min-width:1025px){.hero .txt p,.hero h1{max-width:620px}}
 .hero .haut{position:relative;display:flex;justify-content:space-between;align-items:center;padding:26px 22px 0;max-width:1180px;width:100%;margin:0 auto}
 .hero .haut img{height:24px}
 .lang{font-size:13px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:4px 12px}
@@ -58,7 +58,7 @@ footer a{color:#fff;text-decoration:none}
 </head>
 <body>
 <header class="hero">
-  <picture><source media="(max-width:700px)" srcset="hero_mobile.jpg"><img src="hero.jpg" alt=""></picture>
+  <picture><source media="(max-width:1024px)" srcset="hero_mobile.jpg"><img src="hero.jpg" alt=""></picture>
   <div class="haut"><img src="https://assets.zyrosite.com/cdn-cgi/image/format=png,w=600/A1aev9vl9af974Jg/logo-3deizon-blanc-maj-m2WBOa0Z76T2opKr.png" alt="3DÉIZON"><a class="lang" id="lang" href="#"></a></div>
   <div class="txt">
     <div class="kick" data-t="kick"></div>
