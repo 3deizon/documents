@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3DÉIZON — Vos fichiers</title>
+<style>
+:root{--ink:#0E0E0F;--ivory:#F5F2EC;--bronze:#9A6B4B;--stone:#A39B8F;--muted:#6B655D;--line:rgba(20,20,20,.14)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif}
+main{max-width:620px;margin:0 auto;padding:28px 16px 56px}
+img.logo{height:22px}
+h1{font-size:32px;line-height:1.06;letter-spacing:-.022em;font-weight:600;margin:28px 0 8px}
+h1 span{color:var(--bronze)}
+p.sous{color:var(--muted);margin:0 0 18px}
+.drop{border:2px dashed rgba(154,107,75,.5);border-radius:12px;background:#fff;padding:34px 16px;text-align:center;cursor:pointer}
+.drop.sur{background:#F7F0E6}
+.drop b{display:block;font-size:18px}
+.drop small{color:var(--muted)}
+input[type=file]{display:none}
+.f{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:14px}
+.f .n{display:flex;justify-content:space-between;gap:10px}
+.f .p{height:5px;background:rgba(20,20,20,.08);border-radius:3px;margin-top:8px;overflow:hidden}
+.f .p i{display:block;height:100%;width:0;background:var(--bronze);transition:width .2s}
+label{display:block;margin:26px 0 6px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--stone)}
+input[type=url]{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fff}
+button{display:block;width:100%;margin-top:12px;border:0;border-radius:8px;background:var(--bronze);color:#fff;font:600 16px -apple-system,sans-serif;padding:14px;cursor:pointer}
+.msg{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin-top:18px}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="https://assets.zyrosite.com/cdn-cgi/image/format=png,w=600/A1aev9vl9af974Jg/logo-3deizon-noir-YD0rMeDn6VCoEQDG.png" alt="3DÉIZON">
+  <h1 id="titre"></h1>
+  <p class="sous" id="sous"></p>
+  <div class="drop" id="drop"><b id="dropT"></b><small id="dropS"></small></div>
+  <input type="file" id="fichiers" multiple>
+  <div id="liste"></div>
+  <label id="lienL"></label>
+  <input type="url" id="lien" placeholder="https://we.tl/…">
+  <button id="envoyerLien"></button>
+  <div id="fin"></div>
+</main>
+<script>
+const API = "https://projet.j-a-3e2.workers.dev/api";
+const q = new URLSearchParams(location.search), d = q.get("d"), s = q.get("s");
+let info = {};
+try { info = JSON.parse(decodeURIComponent(escape(atob(d.replace(/-/g, "+").replace(/_/g, "/"))))); } catch (e) {}
+const L = info.l === "FR" ? "fr" : "en";
+const T = {
+  fr: { titre: 'Vos <span>fichiers</span>', sous: `${info.n ? info.n + ", d" : "D"}éposez ici vos plans, votre maquette 3D et vos références. Ils arrivent directement dans votre dossier de projet.`,
+        dropT: "Touchez pour choisir vos fichiers", dropS: "ou glissez-les ici · tous formats, plusieurs fichiers possibles", lienL: "Ou collez un lien (WeTransfer, Dropbox, Drive…)",
+        envoyerLien: "Envoyer le lien", ok: "Reçu, merci ! Nous avons bien vos fichiers.", okLien: "Lien bien reçu, merci !", erreur: "L'envoi a échoué. Réessayez, ou écrivez-nous sur WhatsApp : +261 34 88 032 77." },
+  en: { titre: 'Your <span>files</span>', sous: `${info.n ? info.n + ", u" : "U"}pload your drawings, 3D model and references here. They go straight into your project folder.`,
+        dropT: "Tap to choose your files", dropS: "or drop them here · any format, several files at once", lienL: "Or paste a link (WeTransfer, Dropbox, Drive…)",
+        envoyerLien: "Send the link", ok: "Received, thank you! We have your files.", okLien: "Link received, thank you!", erreur: "Upload failed. Please try again, or message us on WhatsApp: +261 34 88 032 77." }
+}[L];
+document.documentElement.lang = L;
+for (const k of ["titre", "sous", "dropT", "dropS", "lienL", "envoyerLien"]) document.getElementById(k)[k === "titre" ? "innerHTML" : "textContent"] = T[k];
+const $ = id => document.getElementById(id);
+const post = (chemin, corps) => fetch(API + chemin, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ d, s, ...corps }) });
+function envoyerFichier(f, barre) {
+  return post("/depot/session", { nom: f.name, type: f.type || "application/octet-stream", taille: f.size }).then(r => r.json()).then(o => new Promise((ok, ko) => {
+    if (!o.url) return ko();
+    const x = new XMLHttpRequest(); x.open("PUT", o.url);
+    x.upload.onprogress = e => { if (e.lengthComputable) barre.style.width = (100 * e.loaded / e.total) + "%"; };
+    x.onload = () => (x.status < 300 ? ok() : ko()); x.onerror = ko; x.send(f);
+  }));
+}
+async function traiter(fichiers) {
+  const noms = [];
+  for (const f of fichiers) {
+    const el = document.createElement("div"); el.className = "f";
+    el.innerHTML = `<div class="n"><span>${f.name.replace(/</g, "")}</span><span>${(f.size / 1048576).toFixed(1)} Mo</span></div><div class="p"><i></i></div>`;
+    $("liste").appendChild(el);
+    try { await envoyerFichier(f, el.querySelector("i")); noms.push(f.name); el.querySelector("i").style.width = "100%"; }
+    catch (e) { el.style.borderColor = "#b33"; }
+  }
+  if (noms.length) { await post("/depot/fin", { noms }); $("fin").innerHTML = `<div class="msg">${T.ok}</div>`; }
+  else $("fin").innerHTML = `<div class="msg">${T.erreur}</div>`;
+}
+$("drop").onclick = () => $("fichiers").click();
+$("fichiers").onchange = e => traiter([...e.target.files]);
+$("drop").ondragover = e => { e.preventDefault(); $("drop").classList.add("sur"); };
+$("drop").ondragleave = () => $("drop").classList.remove("sur");
+$("drop").ondrop = e => { e.preventDefault(); $("drop").classList.remove("sur"); traiter([...e.dataTransfer.files]); };
+$("envoyerLien").onclick = async () => {
+  const v = $("lien").value.trim(); if (!/^https?:\/\//.test(v)) return;
+  const r = await post("/depot/fin", { noms: [], lien: v });
+  $("fin").innerHTML = `<div class="msg">${r.ok ? T.okLien : T.erreur}</div>`; if (r.ok) $("lien").value = "";
+};
+</script>
+</body>
+</html>
