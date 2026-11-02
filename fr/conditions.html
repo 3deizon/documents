@@ -1,0 +1,124 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Conditions générales · 3DÉIZON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;600&display=swap"><style>
+:root{--ombre:#2E2A25;--nuit:#14110e;--pierre:#C8B68E;--mtrame:#CDD4D3;--trait:rgba(255,255,255,.22);--pad:clamp(18px,3vw,44px);--shd:0 0 2px rgba(20,17,14,.4),0 2px 12px rgba(20,17,14,.5),0 0 40px rgba(20,17,14,.4)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--nuit);color:#fff;font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block}a{color:inherit}button,input,select,textarea{font:inherit}
+.it{font-family:Italiana,Georgia,serif;font-weight:400;letter-spacing:-.005em}
+.logo{height:clamp(24px,2.4vw,34px);width:auto;display:block;filter:drop-shadow(0 1px 8px rgba(20,17,14,.55))}
+.cap{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin:0 0 14px;color:var(--pierre)}
+.btn{text-shadow:none;display:inline-flex;align-items:center;justify-content:center;gap:12px;height:54px;padding:0 26px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid #fff;background:transparent;color:#fff;white-space:nowrap;text-decoration:none;cursor:pointer;transition:background .35s,color .35s,border-color .35s}
+.btn .ar{width:18px;height:18px;flex:none;transition:transform .35s}.btn:hover .ar{transform:translateX(4px)}.btn:hover{background:#fff;color:var(--ombre)}
+.btn.p{background:var(--pierre);border-color:var(--pierre);color:var(--ombre)}.btn.p:hover{background:#fff;border-color:#fff}
+.btn svg:not(.ar){width:22px;height:22px;flex:none}
+.btn.wa{border-color:rgba(200,182,142,.7);color:var(--pierre)}.btn.wa svg{width:22px;height:22px}.btn.wa:hover{background:var(--pierre);color:var(--ombre)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.top{position:absolute;z-index:8;left:0;right:0;top:0;display:flex;justify-content:space-between;align-items:center;padding:calc(var(--pad)*.9) var(--pad);text-shadow:var(--shd)}
+.top a{text-decoration:none}
+.top .lng{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid currentColor;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;box-shadow:0 0 18px rgba(20,17,14,.25)}
+/* page partagée : image plein cadre à gauche, contenu à droite */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:100svh}
+.split .vis{position:sticky;top:0;height:100svh;overflow:hidden}
+.split .vis>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.split .vis .t{position:absolute;z-index:2;left:var(--pad);right:var(--pad);top:calc(var(--pad)*.9 + 64px);text-shadow:var(--shd)}
+.split .vis h1{margin:0;font-size:min(5.6vw,11svh);line-height:.96}
+.split .vis .lead{display:none;margin:16px 0 0;max-width:460px;font-size:clamp(15px,1.15vw,18px);line-height:1.5;font-weight:600}
+.split .vis>img.m{display:none}.split.long .vis h1{font-size:min(4.2vw,8.5svh)}.split.long .zone{align-self:center;padding-top:clamp(60px,8svh,90px)}.zone .intro{margin:0 0 26px;font-size:clamp(16px,1.2vw,19px);line-height:1.55;font-weight:600}.zone .bts{display:flex;gap:10px;flex-wrap:wrap}.zone .pil{padding:0;margin-top:34px}.zone .pil h2{font-size:clamp(28px,2.6vw,40px)}
+.split .vis .leg{position:absolute;z-index:2;right:var(--pad);bottom:24px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;text-shadow:var(--shd)}
+.split .zone{padding:clamp(90px,12svh,130px) clamp(22px,4.5vw,72px) 80px;max-width:760px;width:100%}
+/* formulaire */
+.etape{padding:0 0 34px;margin:0 0 34px;border-bottom:1px solid var(--trait)}
+.etape:last-of-type{border:0}
+.etape h2{display:flex;align-items:baseline;gap:14px;margin:0 0 6px;font-family:Italiana,Georgia,serif;font-weight:400;font-size:clamp(30px,2.8vw,44px);line-height:1}
+.etape h2 i{font-style:normal;font-family:Manrope,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--pierre)}
+.deux{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+label.t{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mtrame);margin:26px 0 8px}
+input:not([type=radio]):not([type=file]),select,textarea{width:100%;padding:10px 0 12px;border:0;border-bottom:1px solid rgba(255,255,255,.4);border-radius:0;background:transparent;color:#fff;font-size:18px;appearance:none;transition:border-color .3s}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.38)}
+input:focus,select:focus,textarea:focus{outline:0;border-bottom-color:var(--pierre)}
+select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C8B68E' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right 4px center}
+select option{color:#14110e}
+textarea{min-height:92px;resize:vertical}
+.choix{display:flex;flex-wrap:wrap;gap:8px}
+.choix label{position:relative}
+.choix input{position:absolute;opacity:0;width:1px;height:1px}
+.choix span{display:inline-block;padding:11px 18px;border:1px solid rgba(255,255,255,.4);border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.choix span:hover{border-color:#fff}
+.choix input:checked+span{background:var(--pierre);border-color:var(--pierre);color:var(--ombre)}
+.choix input:focus-visible+span{outline:2px solid #fff;outline-offset:2px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.err{display:none;margin:0 0 18px;padding:0 0 0 14px;border-left:2px solid var(--pierre);color:#fff;font-weight:600}
+.rgpd{display:block;margin-top:14px;color:var(--mtrame);font-size:13px}
+.rgpd a{color:var(--pierre)}
+.offre{display:none;margin:0 0 30px;padding:18px 0 0;border-top:1px solid var(--pierre)}
+.offre b{display:block;font-family:Italiana,Georgia,serif;font-weight:400;font-size:30px;line-height:1.05;color:var(--pierre)}
+.offre p{margin:8px 0 0;font-weight:600;line-height:1.5}
+/* dépôt */
+.drop{display:block;border:1px dashed rgba(200,182,142,.8);border-radius:14px;padding:46px 20px;text-align:center;cursor:pointer;transition:background .3s,border-color .3s}
+.drop.sur,.drop:hover{background:rgba(200,182,142,.08);border-color:#fff}
+.drop b{display:block;font-family:Italiana,Georgia,serif;font-weight:400;font-size:clamp(28px,2.4vw,38px);line-height:1.05;margin-bottom:8px}
+.drop small{color:var(--mtrame);font-size:14px}
+.drop svg{width:34px;height:34px;margin:0 auto 14px;color:var(--pierre)}
+input[type=file]{display:none}
+.f{padding:12px 0;border-bottom:1px solid var(--trait);font-size:14px}
+.f .n{display:flex;justify-content:space-between;gap:12px}.f .n span:last-child{color:var(--mtrame);white-space:nowrap}
+.f .p{height:2px;background:rgba(255,255,255,.14);margin-top:10px;overflow:hidden}
+.f .p i{display:block;height:100%;width:0;background:var(--pierre);transition:width .2s}
+.f.ko .n span:first-child{color:#f0a48c}
+.ligne{display:flex;gap:12px;align-items:flex-end;margin-top:8px}.ligne input{flex:1}
+.msg{margin-top:26px;padding:18px 0 0;border-top:1px solid var(--pierre);font-size:17px;font-weight:600;line-height:1.5}
+/* rendez-vous */
+.jour{margin-top:26px}
+.jour h3{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mtrame);margin:0 0 10px}
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
+.c{border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;user-select:none;transition:background .25s,border-color .25s,color .25s}
+.c:hover{border-color:#fff}
+.c b{display:block;font-family:Italiana,Georgia,serif;font-weight:400;font-size:26px;line-height:1.05}
+.c small{display:block;font-size:11px;color:var(--mtrame);margin-top:2px}
+.c.on{background:var(--pierre);border-color:var(--pierre);color:var(--ombre)}.c.on small{color:var(--ombre)}
+.c.off{opacity:.3;cursor:not-allowed}
+.barre{position:fixed;z-index:40;left:75%;transform:translateX(-50%);bottom:clamp(14px,2.4svh,26px);display:flex;gap:16px;align-items:center;padding:8px 8px 8px 24px;border-radius:999px;background:rgba(46,42,37,.96);box-shadow:0 18px 40px -14px rgba(0,0,0,.7),0 0 0 1px rgba(200,182,142,.4);white-space:nowrap}
+.barre>span{font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--mtrame)}
+.barre[hidden]{display:none}
+/* plein écran (merci, paiement) */
+.full{position:relative;height:100svh;min-height:560px;overflow:hidden}
+.full>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.full>img.x,.full>img.m{display:none}
+.pil{padding:clamp(70px,10svh,110px) var(--pad) 120px;max-width:900px}.pil h2{font-family:Italiana,Georgia,serif;font-weight:400;font-size:clamp(34px,3.4vw,56px);line-height:1;margin:0 0 6px}
+.full .t{position:absolute;z-index:2;left:var(--pad);max-width:min(760px,88vw);text-shadow:var(--shd)}
+.full .t1{top:calc(var(--pad)*.9 + 64px);max-width:94vw}.full .t2{bottom:clamp(26px,4.5svh,52px)}
+.full h1{margin:0;font-size:min(4.4vw,8.5svh);line-height:1;white-space:nowrap}.full h1 br{display:none}.full .t2 .lead{margin-top:0}
+.full .lead{margin:18px 0 26px;max-width:520px;font-size:clamp(17px,1.35vw,21px);line-height:1.5;font-weight:600}
+.full .bts{display:flex;gap:10px;flex-wrap:wrap}
+.full .bts .btn{box-shadow:0 0 22px rgba(20,17,14,.3)}
+/* pages légales */
+.bande{position:relative;height:62svh;min-height:420px;overflow:hidden}
+.bande>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bande .t{position:absolute;z-index:2;left:var(--pad);bottom:clamp(36px,7svh,70px);text-shadow:var(--shd)}
+.bande h1{margin:0;font-size:min(7vw,12svh);line-height:.96}
+.legal{max-width:760px;padding:56px var(--pad) 90px;margin:0 0 0 calc(var(--pad) + 0px)}
+.legal p,.legal li{font-size:17px;line-height:1.7;color:#ece8e1}.legal p b{color:#fff}
+.legal h2{font-family:Italiana,Georgia,serif;font-weight:400;font-size:32px;margin:42px 0 8px;color:var(--pierre)}
+.legal .maj{color:var(--mtrame);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+footer{position:relative;z-index:3;background:var(--ombre);color:var(--mtrame);padding:22px var(--pad);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;letter-spacing:.06em}
+footer a{color:#fff;text-decoration:none;margin-left:16px}footer .logo{height:22px;filter:none}
+@media (max-width:860px){
+ .split{display:block}
+ .split .vis{position:relative;height:auto}
+ .split .vis>img{position:static;width:100%;height:auto}
+ .split .vis .t{top:58px;bottom:auto;left:18px;right:18px}.split .vis .cap{display:none}.split .vis h1{font-size:7.4vw;white-space:nowrap}.split .vis h1 br{display:none}.split .vis .lead{display:none}.split .vis .leg{display:none}
+ .split .zone{padding:28px 18px 120px}
+ .split .vis>img.m{display:block;height:96vw;object-fit:cover;object-position:50% 0}.split .vis>img.d{display:none}.split.long .vis .t{top:50px}.split.long .vis h1{white-space:normal;font-size:8.2vw}.split.long .vis h1 br{display:inline}.zone .bts .btn{flex:1 1 100%;height:48px}.split.long .zone{padding-bottom:60px}
+ .split .zone .intro{display:block}
+ .deux{grid-template-columns:1fr}
+ .barre{left:10px;right:10px;transform:none;justify-content:space-between}
+ .full{height:100svh;min-height:600px;display:flex;flex-direction:column;gap:4px}.full>img{position:static;width:100%;height:auto;flex:none}.full>img.x,.full>img.m{display:block}.full>img.d{display:none}
+ .full .t{left:18px;right:18px;max-width:none}.full .t1{top:50px}.full .t1 .cap{display:none}.full>img.m{height:96vw;object-fit:cover;object-position:50% 0}.full .t2{bottom:22px}.full h1{font-size:8.2vw;white-space:normal}.full h1 br{display:inline}.full .lead{font-size:15px;margin:12px 0 16px}.full .bts .btn{flex:1 1 100%;height:48px}
+ .legal{margin:0;padding:36px 18px 80px}.bande{height:auto;min-height:0}.bande>img{position:static;width:100%;height:auto}.bande h1{font-size:11vw}
+ footer a{margin:0 16px 0 0}
+}
+.intro{display:block}
+</style></head><body><header class="top"><a href="https://3deizon.com/" aria-label="3DÉIZON"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0.0 -62.4 2117.0 462.4" class="logo" role="img" aria-label="3DÉIZON"><g transform="translate(0,0)"><rect x="12" y="0" width="208" height="14" fill="currentColor"/><polygon points="199.0,13 220,13 113.0,177 92,177" fill="currentColor"/><rect x="92" y="176" width="30" height="14" fill="currentColor"/><path d="M122,176 A112,112 0 0 1 122,400 L122,386 A54,98 0 0 0 122,190 Z" fill="currentColor"/><path d="M122,400 L122,386 C72,386 30,378 4,348 L0,360 C30,398 72,400 122,400 Z" fill="currentColor"/></g><g transform="translate(298,0)"><rect x="0" y="0" width="58" height="400" fill="currentColor"/><rect x="0" y="0" width="120" height="14" fill="currentColor"/><rect x="0" y="386" width="120" height="14" fill="currentColor"/><path d="M120,0 A180,200 0 0 1 120,400 L120,386 A116,186 0 0 0 120,14 Z" fill="currentColor"/></g><g transform="translate(662,0)"><rect x="0" y="0" width="58" height="400" fill="currentColor"/><rect x="0" y="0" width="230" height="14" fill="currentColor"/><rect x="0" y="193.0" width="200" height="14" fill="currentColor"/><rect x="0" y="386" width="236" height="14" fill="currentColor"/><rect x="0" y="-62.400000000000006" width="230" height="22.400000000000002" fill="currentColor"/></g><g transform="translate(962,0)"><rect x="0" y="0" width="58" height="400" fill="currentColor"/></g><g transform="translate(1084,0)"><rect x="10" y="0" width="250" height="14" fill="currentColor"/><rect x="0" y="386" width="263" height="14" fill="currentColor"/><polygon points="181.7,13 260,13 78.30000000000001,387 0,387" fill="currentColor"/><rect x="10" y="188.8" width="250" height="22.400000000000002" fill="currentColor"/></g><g transform="translate(1411,0)"><path fill-rule="evenodd" d="M0,200 A171,205 0 1 1 342,200 A171,205 0 1 1 0,200 Z M62,200 A109,191 0 1 0 280,200 A109,191 0 1 0 62,200 Z" fill="currentColor"/><ellipse cx="171" cy="200" rx="24" ry="34" fill="currentColor"/></g><g transform="translate(1817,0)"><rect x="0" y="0" width="14" height="400" fill="currentColor"/><rect x="286" y="0" width="14" height="400" fill="currentColor"/><polygon points="0,0 66.69999999999999,0 300,400 233.3,400" fill="currentColor"/></g></svg>
+</a><a class="lng" onclick="try{localStorage.setItem('3dz-lang','en')}catch(e){}" id="lng" href="../terms.html">EN</a></header>
+<section class="bande"><img src="../img/r030.jpg" alt=""><div class="t"><p class="cap">Conditions</p><h1 class="it">Conditions générales</h1></div></section>
+<main class="legal"><p class="maj">Mise à jour : 2 novembre 2026</p><p><b>1. Objet.</b> Le devis signé décrit les visuels de commercialisation commandés, destinés à la promotion du projet. Ils sont livrés en Images 4K. Les fichiers de travail 3D ne sont pas livrés, sauf mention contraire au devis.</p><p><b>2. Éléments fournis par le client.</b> Plans, maquette 3D si elle existe, matériaux et références. Si la maquette 3D n&#x27;est pas disponible, sa modélisation d&#x27;après les plans est facturée en sus, selon le devis. Le client garantit qu&#x27;il a le droit de nous transmettre ces éléments.</p><p><b>3. Étapes et validations.</b> Lancement, maquette 3D, cadrages, rendus finaux. Le client valide la maquette, les cadrages et les rendus finaux par écrit (e-mail ou WhatsApp). Chaque validation est définitive. Sont incluses deux séries de corrections à l&#x27;étape maquette, deux à l&#x27;étape cadrages et une sur les rendus finaux. Toute modification supplémentaire, ou tout changement du projet après validation, fait l&#x27;objet d&#x27;un devis complémentaire.</p><p><b>4. Prix et règlement.</b> Prix hors taxes, dans la devise du devis. Règlement : 40 % à la commande, 30 % à la validation de la maquette 3D, 30 % à la livraison. La production démarre à réception de l&#x27;acompte. Les factures sont payables à réception. Les images finales en pleine définition sont remises après le règlement du solde.</p><p><b>5. Délais.</b> Le calendrier dépend de la rapidité des validations et de la remise des éléments par le client.</p><p><b>6. Propriété des images.</b> Dès le règlement intégral, les images livrées deviennent la propriété du client. Il peut les utiliser librement, sur tous supports, sans limite de durée ni de territoire. Jusqu&#x27;au règlement intégral, elles restent la propriété de 3DÉIZON.</p><p><b>7. Usage par 3DÉIZON.</b> Le client autorise 3DÉIZON à utiliser les images produites pour sa propre communication : portfolio, site internet, réseaux sociaux, plaquettes, publicités et concours. Cette autorisation vaut sans limite de durée. La première publication intervient après le lancement commercial du projet, ou plus tôt avec l&#x27;accord du client.</p><p><b>8. Confidentialité.</b> 3DÉIZON garde confidentiels les plans et informations du projet jusqu&#x27;à son lancement commercial.</p><p><b>9. Nature des visuels.</b> Les visuels sont des vues d&#x27;artiste. Il appartient au client d&#x27;indiquer sur ses supports de vente qu&#x27;ils ne sont pas contractuels.</p><p><b>10. Annulation.</b> En cas d&#x27;annulation par le client, les sommes déjà versées restent acquises à 3DÉIZON.</p><p><b>11. Droit applicable.</b> Droit des Émirats arabes unis. Tribunaux compétents : Ras Al Khaimah.</p></main>
+<footer><span>Marostone FZ-LLC · Ras Al Khaimah</span><span><a href="mailto:contact@3deizon.com">contact@3deizon.com</a><a href="https://wa.me/971586331996">WhatsApp +971 58 633 1996</a></span></footer></body></html>
